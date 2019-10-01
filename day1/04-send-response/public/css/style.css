@@ -1,0 +1,16 @@
+html, body {
+  margin: 0 auto;
+}
+
+button#scores-btn {
+  font-size: 16px;
+  height: 48px;
+  width: 400px;
+  background: white;
+  border-radius: 2px;
+  border: 1px solid #494949;
+}
+
+button#scores-btn:hover {
+  cursor: pointer;
+}
