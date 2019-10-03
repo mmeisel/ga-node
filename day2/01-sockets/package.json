@@ -1,0 +1,17 @@
+{
+  "name": "02-sockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.19.3",
+    "serialport": "^7.1.5",
+    "socket.io": "^2.2.0"
+  }
+}
