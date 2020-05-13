@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
 // wrap an api request in our own endpoint
 app.get('/getScoreData', function(req, res) {
   
-  let teleportUrl = 'https://api.teleport.org/api/urban_areas/slug:san-francisco-bay-area/scores/';
+  let teleportUrl = 'http://api.teleport.org/api/urban_areas/slug:san-francisco-bay-area/scores/';
   let options = {
     json: true 
   };

@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 });
 
 // make an api request to the api /scores endpoint
-let teleportUrl = 'https://api.teleport.org/api/urban_areas/slug:san-francisco-bay-area/scores/';
+let teleportUrl = 'http://api.teleport.org/api/urban_areas/slug:san-francisco-bay-area/scores/';
 let options = {
   json: true 
 };
