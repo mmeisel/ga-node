@@ -3,7 +3,7 @@ const app     = express();
 const PORT    = 3000;
 
 
-// tell our app where to serve our static files
+// tell our app where to serve our static files (root dir)
 app.use(express.static('public'));
 
 // define a route - what happens when people visit /
