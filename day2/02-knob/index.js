@@ -10,7 +10,7 @@ const io      = require('socket.io')(server);
 
 const SerialPort = require('serialport');
 const Readline   = require('@serialport/parser-readline');
-const sPort      = new SerialPort('/dev/cu.usbmodem1431', { baudRate: 9600 });
+const sPort      = new SerialPort('/dev/cu.usbmodem141101', { baudRate: 9600 });
 const parser     = sPort.pipe(new Readline({ delimiter: '\n' }));
 
 
