@@ -2,10 +2,10 @@
 // Upload 01-button-serial.ino to Arduino board!
 // --------------------------------------------------------
 
-const SerialPort = require('serialport');
-const Readline   = require('@serialport/parser-readline');
-const sPort      = new SerialPort('/dev/cu.usbmodem141101', { baudRate: 9600 });
-const parser     = sPort.pipe(new Readline({ delimiter: '\n' }));
+const { SerialPort } = require('serialport');
+const { ReadlineParser } = require('@serialport/parser-readline');
+const sPort = new SerialPort({ path: '/dev/cu.usbmodem14101', baudRate: 9600 });
+const parser = sPort.pipe(new ReadlineParser({ delimiter: '\r\n' }));
 
 
 // --------------------------------------------------------
