@@ -2,10 +2,11 @@
 // Make to upload 04-ultrasonic.ino to Arduino board!
 // Credit to Mark Hellar for the exec example!
 // --------------------------------------------------------
-const SerialPort = require('serialport');
-const Readline   = require('@serialport/parser-readline');
-const sPort      = new SerialPort('/dev/cu.usbmodem141101', { baudRate: 9600 });
-const parser     = sPort.pipe(new Readline({ delimiter: '\n' }));
+const { SerialPort } = require('serialport');
+const { ReadlineParser } = require('@serialport/parser-readline');
+const sPort = new SerialPort({ path: '/dev/cu.usbmodem14101', baudRate: 9600 });
+const parser = sPort.pipe(new ReadlineParser({ delimiter: '\r\n' }));
+
 const exec       = require('child_process').exec;
 
 
