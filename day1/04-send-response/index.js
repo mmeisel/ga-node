@@ -1,7 +1,7 @@
+const axios = require('axios');
 const express = require('express');
-const request = require('request');
-const app     = express();
-const PORT    = 3000;
+const app = express();
+const PORT = 3000;
 
 
 // tell our app where to serve our static files
@@ -9,27 +9,27 @@ app.use(express.static('public'));
 
 // --------------------------------------------------------
 // define a route - what happens when people visit /
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
 // --------------------------------------------------------
 // wrap an api request in our own endpoint
-app.get('/getScoreData', function(req, res) {
-  
+app.get('/getScoreData', (req, res) => {
+
   let teleportUrl = 'http://api.teleport.org/api/urban_areas/slug:san-francisco-bay-area/scores/';
   let options = {
-    json: true 
+    json: true
   };
 
   // make an api request to the api /scores endpoint
-  request(teleportUrl, options, function(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      res.send(body);
-    } else {
-      res.send(error);
-    }
-  }); 
+  axios.get(teleportUrl, { params: options })
+    .then((teleportResponse) => {
+      res.send(teleportResponse.data);
+    })
+    .catch((error) => {
+      res.send(error.response.data);
+    });
 });
 
 // --------------------------------------------------------

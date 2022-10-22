@@ -1,7 +1,8 @@
+const axios = require('axios');
 const express = require('express');
-const request = require('request');
-const app     = express();
-const PORT    = 3000;
+
+const app = express();
+const PORT = 3000;
 
 
 // tell our app where to serve our static files
@@ -18,13 +19,13 @@ let options = {
   json: true 
 };
 
-request(teleportUrl, options, function(err, res, body) {
-  if (!err && res.statusCode == 200) {
-    console.log(body);
-  } else {
-    console.log(err);
-  }
-}); 
+axios.get(teleportUrl, { params: options })
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 // tell our app where to listen for connections
 app.listen(PORT, function() {
