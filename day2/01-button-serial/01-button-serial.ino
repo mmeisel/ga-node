@@ -1,5 +1,5 @@
 const int buttonPin = 2;
-int buttonState = 0; 
+int buttonState = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -7,12 +7,16 @@ void setup() {
 }
 
 void loop() {
-  buttonState = digitalRead(buttonPin);
+  int newButtonState = digitalRead(buttonPin);
+
+  if (newButtonState != buttonState) {
+    buttonState = newButtonState;
 
     if (buttonState == HIGH) {
       Serial.println(1);
-    } else {
+    }
+    else {
       Serial.println(0);
     }
+  }
 }
-

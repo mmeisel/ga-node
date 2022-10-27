@@ -19,7 +19,7 @@ void loop() {
 }
 
 void measure(int trig, int echo) {
-  
+
   digitalWrite (trig, HIGH);
   delayMicroseconds(100);
   digitalWrite (trig, LOW);
@@ -29,7 +29,7 @@ void measure(int trig, int echo) {
   duration = pulseIn(echo, HIGH);
 
   // We divide by two because the distance is for a return trip
-  // Sound takes 29.154 microseconds to travel 1 centimeter, 
+  // Sound takes 29.154 microseconds to travel 1 centimeter,
   // (ultrasonic waves travel as fast as the speed of sound)
   // For reference, 2.54 cm = 1 in
   distance = (duration / 2) / 29.1;

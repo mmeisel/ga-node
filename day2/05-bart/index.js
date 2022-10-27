@@ -1,8 +1,8 @@
 const express = require('express');
-const app     = express();
-const PORT    = 3000;
-const server  = require('http').createServer(app);
-const io      = require('socket.io')(server);
+const app = express();
+const PORT = 3000;
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
 const bart = require('bart').createClient({ "interval" : 20000 });
 
@@ -16,12 +16,6 @@ io.on('connection', function (socket) {
 // --------------------------------------------------------
 // tell our app where to serve our static files
 app.use(express.static('public'));
-
-// --------------------------------------------------------
-// define a route - what happens when people visit /
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
 
 // --------------------------------------------------------
 // tell our app where to listen for connections

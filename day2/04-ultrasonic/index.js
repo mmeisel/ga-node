@@ -7,7 +7,7 @@ const { ReadlineParser } = require('@serialport/parser-readline');
 const sPort = new SerialPort({ path: '/dev/cu.usbmodem14101', baudRate: 9600 });
 const parser = sPort.pipe(new ReadlineParser({ delimiter: '\r\n' }));
 
-const exec       = require('child_process').exec;
+const exec = require('node:child_process').exec;
 
 
 // --------------------------------------------------------
@@ -28,7 +28,7 @@ function sayHello() {
 }
 
 // --------------------------------------------------------
-// SERIAL PORT 
+// SERIAL PORT
 // --------------------------------------------------------
 // Tells us when the serial port is open and available to read from.
 // Make sure your serial monitor is not open with Arduino!
@@ -38,7 +38,7 @@ sPort.on("open", () => {
 
 // --------------------------------------------------------
 // Our parser streams the incoming serial data
-parser.on('data', sensorData => {
+parser.on('data', (sensorData) => {
   console.log(parseInt(sensorData));
 
   if (parseInt(sensorData) < 10) {
