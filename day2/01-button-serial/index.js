@@ -9,20 +9,20 @@ const parser = sPort.pipe(new ReadlineParser({ delimiter: '\r\n' }));
 
 
 // --------------------------------------------------------
-// SERIAL PORT 
+// SERIAL PORT
 // --------------------------------------------------------
 // Tells us when the serial port is open and available to read from.
 // Make sure your serial monitor is not open with Arduino!
-sPort.on("open", () => {
+sPort.on('open', () => {
   console.log('Serial port open.');
 });
 
 // --------------------------------------------------------
 // Our parser streams the incoming serial data
-parser.on('data', data => {
+parser.on('data', (data) => {
   if (parseInt(data) == 1) {
-    console.log("BUTTON PRESSED");
+    console.log('BUTTON PRESSED');
   } else {
-    console.log("NOT PRESSED");
+    console.log('NOT PRESSED');
   }
 });
